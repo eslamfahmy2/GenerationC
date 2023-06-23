@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GenC Task</string>
+
+    <string name="no_internet_connection_error">No internet connection found. Please connect and try again.</string>
+    <string name="no_internet_connection_error_coroutine">Please make sure your internet connection is stable and try again.</string>
+    <string name="server_error_message">A server error has occurred %1$s</string>
+    <string name="unknown_error">Unknown error</string>
+
+    <string name="file_not_found">File not found</string>
+    <string name="no_matching_search">there’s no car available with this criteria.</string>
+    <string name="car_details">Car details</string>
+    <string name="search">Search</string>
+    <string name="input_not_valid">"input is not valid number"</string>
+</resources>

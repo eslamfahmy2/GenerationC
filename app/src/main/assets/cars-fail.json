@@ -1,0 +1,6 @@
+{
+  "status": {
+    "code": 204,
+    "message": "no cars available"
+  }
+}
