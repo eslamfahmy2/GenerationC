@@ -7,12 +7,34 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.flowWithLifecycle
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
+
+class SavableMutableSaveStateFlow<T>(
+    private val savedStateHandle: SavedStateHandle,
+    private val key: String,
+    defaultValue: T
+) {
+    private val _state: MutableStateFlow<T> =
+        MutableStateFlow(
+            savedStateHandle.get<T>(key) ?: defaultValue
+        )
+
+    var value: T
+        get() = _state.value
+        set(value) {
+            _state.value = value
+            savedStateHandle[key] = value
+        }
+
+    fun asStateFlow(): StateFlow<T> = _state
+}
 
 @Composable
 fun <T> rememberFlow(

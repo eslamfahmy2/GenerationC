@@ -1,22 +1,18 @@
 package com.testapp.presentation.components.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.testapp.R
 
 @Composable
-fun MyApplicationTestUiAppTheme(
+fun AppMainTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -63,16 +59,6 @@ fun MyApplicationTestUiAppTheme(
     val colorScheme = when {
         darkTheme -> DarkColorPalette
         else -> LightColorPalette
-    }
-
-    //remove status bar
-    val systemUiController = rememberSystemUiController()
-    SideEffect {
-        systemUiController.setStatusBarColor(
-            darkIcons = false,
-            color = Color.Transparent
-        )
-        systemUiController.isStatusBarVisible = false
     }
 
     MaterialTheme(

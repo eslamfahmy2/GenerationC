@@ -25,11 +25,11 @@ import com.testapp.utils.collectAsStateLifecycleAware
 
 @Composable
 fun CarsDetailScreen(
+    car: Car,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = hiltViewModel(),
     scaffoldState: ScaffoldState = rememberScaffoldState(),
-    car: Car
 ) {
     Scaffold(
         scaffoldState = scaffoldState,
@@ -54,9 +54,9 @@ fun CarsDetailScreen(
         }
         // Check for user messages to display on the screen
         uiState.msg?.let { userMessage ->
-            LaunchedEffect(scaffoldState, viewModel, userMessage, userMessage) {
+            LaunchedEffect(scaffoldState, viewModel, userMessage) {
                 scaffoldState.snackbarHostState.showSnackbar(userMessage)
-                viewModel.snackMessageShown()
+                //viewModel.snackMessageShown()
             }
         }
     }

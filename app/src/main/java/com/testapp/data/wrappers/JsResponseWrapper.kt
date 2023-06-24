@@ -6,14 +6,14 @@ import com.google.gson.reflect.TypeToken
 
 //Generic response
 class JsResponseWrapper<T> {
-    val cars: T? = null
-    val status: JsStatus = JsStatus()
+    var cars: T? = null
+    var status: JsStatus = JsStatus()
+}
 
-    //response status
-    inner class JsStatus {
-        var code: Int = 0
-        var message: String? = null
-    }
+//response status
+class JsStatus {
+    var code: Int = 0
+    var message: String? = null
 }
 
 //decode response

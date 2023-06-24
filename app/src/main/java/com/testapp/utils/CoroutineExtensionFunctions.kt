@@ -27,7 +27,7 @@ fun CoroutineScope.safeLaunchWithFlow(
 ): Job {
 
     val scope = this
-    val coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, exception ->
+    val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
         // handle thrown exceptions from coroutine scope
         when (exception) {
             //If an exception or error occurs during coroutine execution it will come here.
